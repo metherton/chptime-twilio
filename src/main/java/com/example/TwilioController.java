@@ -19,7 +19,7 @@ import java.util.Map;
 @RestController
 public class TwilioController {
 
-    public static final String ACCOUNT_SID = "AC..";
+    public static final String ACCOUNT_SID = "Ac..";
     public static final String AUTH_TOKEN = "0c..";
 
     @RequestMapping(value="/call/{telephoneNumber}", method= RequestMethod.GET)
@@ -30,7 +30,7 @@ public class TwilioController {
         CallFactory callFactory = mainAccount.getCallFactory();
         Map<String, String> callParams = new HashMap<String, String>();
         callParams.put("To", telephoneNumber); // Replace with your phone number
-        callParams.put("From", "+31622323"); // Replace with a Twilio number
+        callParams.put("From", "+23424"); // Replace with a Twilio number
         callParams.put("Method", "GET");
         callParams.put("Url", "http://8b43b8b6.ngrok.io/voice.xml");
 
