@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+<body>
+
+<script>
+    var app = angular.module("twilioClient", []);
+    app.controller("myCtrl", function($scope, $http) {
+        $scope.makeCall = function() {
+            $http.get('/call/' + $scope.telephoneNumber).then(function(response) {
+               console.log(response);
+            });
+        };
+    });
+</script>
+
+<div ng-app="twilioClient" ng-controller="myCtrl">
+    <div class="container">
+        <h2>Twilio Client</h2>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="telephone">Telephone Number:</label>
+                        <input type="text" placeholder="+316......" ng-model="telephoneNumber" class="form-control" id="telephone">
+                    </div>
+                    <button type="button" ng-click="makeCall()" class="btn btn-primary">Call</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
